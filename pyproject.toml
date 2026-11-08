@@ -1,0 +1,25 @@
+[project]
+name = "pyref"
+version = "0.1.0"
+description = "Python refresher: real-world exercises driven by failing tests."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-timeout>=2.3",
+    "hypothesis>=6.100",
+    "mypy>=1.13",
+    "tzdata>=2024.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["exercises"]
+addopts = ["--import-mode=importlib", "-ra", "--strict-markers"]
+timeout = 60
+filterwarnings = ["error::pytest.PytestUnraisableExceptionWarning"]
